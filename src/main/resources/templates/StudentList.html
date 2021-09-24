@@ -1,0 +1,37 @@
+<html>
+<head></head>
+<body>
+<p><a href="/">Home</a></p>
+<div th:switch="${students}">
+    <h2 th:case="null">No Students Added yet!</h2>
+	<div th:case="*">
+		<h2>Students List</h2>
+			<table border=1>
+				<thead>
+					<tr>
+						<th>Student ID</th>
+						<th>Student Name</th>
+						<th>Email</th>
+						<th>MobileNo</th>
+						<th>Department ID</th>
+						<th>Course ID</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="student:${students}">
+						<td th:text="${student.studentId}"></td>
+						<td th:text="${student.studentName}"></td>
+						<td th:text="${student.email}"></td>
+						<td th:text="${student.mobileNo}"></td>
+						<td th:text="${student.departmentId}"></td>
+						<td th:text="${student.courseId}"></td>
+						<td><a th:href="@{/Student/edit/{id}(id=${student.studentId})}">Edit</a></td>
+                    	<td><a th:href="@{/Student/delete/{id}(id=${student.studentId})}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table> 
+	</div>
+	<p><a href="/Student/create">Add Student</a></p>
+</div>
+</body>
+</html>

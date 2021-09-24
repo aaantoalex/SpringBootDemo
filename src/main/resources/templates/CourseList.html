@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+<p><a href="/">Home</a></p>
+<div th:switch="${courses}">
+    <h2 th:case="null">No Courses Added yet!</h2>
+	<div th:case="*">
+		<h2>Course List</h2>
+			<table border=1>
+				<thead>
+					<tr>
+					<th>Course ID</th>
+					<th>Course Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="course:${courses}">
+						<td th:text="${course.courseID}"></td>
+						<td th:text="${course.courseName}"></td>
+						<td><a th:href="@{/Course/edit/{id}(id=${course.courseID})}">Edit</a></td>
+                    	<td><a th:href="@{/Course/delete/{id}(id=${course.courseID})}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table> 
+	</div>
+	
+	<p><a href="/Course/create">Add Course</a></p>
+
+</div>
+
+</body>
+</html>

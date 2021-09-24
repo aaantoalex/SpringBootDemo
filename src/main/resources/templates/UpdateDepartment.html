@@ -1,0 +1,9 @@
+<p><a href="/Department/index">Home</a></p>
+<form action="#" 
+  th:action="@{/Department/update/{id}(id=${department.departmentID})}" 
+  th:object="${department}" 
+  method="post">
+    <label for="departmentName">Department Name</label>
+    <input type="text" th:field="*{departmentName}" id="departmentName" placeholder="Department Name">
+    <input type="submit" value="Update Department">   
+</form>

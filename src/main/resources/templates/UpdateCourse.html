@@ -1,0 +1,10 @@
+
+<p><a href="/Course/index">Home</a></p>
+<form action="#" 
+  th:action="@{/Course/update/{id}(id=${course.courseID})}" 
+  th:object="${course}" 
+  method="post">
+    <label for="courseName">Course Name</label>
+    <input type="text" th:field="*{courseName}" id="courseName" placeholder="Course Name">
+    <input type="submit" value="Update course">   
+</form>

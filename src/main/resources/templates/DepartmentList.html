@@ -1,0 +1,30 @@
+<html>
+<head></head>
+<body>
+	<p><a href="/">Home</a></p>
+<div th:switch="${departments}">
+    <h2 th:case="null">No Departments Added yet!</h2>
+	<div th:case="*">
+		<h2>Department List</h2>
+			<table border=1>
+				<thead>
+					<tr>
+						<th>Department ID</th>
+						<th>Department Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="department:${departments}">
+						<td th:text="${department.departmentID}"></td>
+						<td th:text="${department.departmentName}"></td>
+						<td><a th:href="@{/Department/edit/{id}(id=${department.departmentID})}">Edit</a></td>
+                    	<td><a th:href="@{/Department/delete/{id}(id=${department.departmentID})}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table> 
+	</div>
+	<p><a href="/Department/create">Add Department</a></p>
+</div>
+
+</body>
+</html>

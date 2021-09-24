@@ -1,0 +1,20 @@
+<html>
+<head></head>
+<body>
+<p><a href="/Student/index">Home</a></p>
+<form action="#" th:action="@{/Student/add}" th:object="${student}" method="post">
+    <label for="studentName">Student Name</label>
+    <input type="text" th:field="*{studentName}" id="studentName" placeholder="Student Name"></br>
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="E-Mail"></br>
+    <label for="mobileNo">Mobile Number</label>
+    <input type="text" th:field="*{mobileNo}" id="mobileNo" value="" placeholder="Mobile Number"></br>
+    <label for="departmentId">Department Name</label>
+    <input type="text" th:field="*{departmentId}" id="departmentId" placeholder="Department"></br>
+    <label for="courseId">Course Name</label>
+    <input type="text" th:field="*{courseId}" id="courseId" placeholder="Course"></br>
+    <input type="submit" value="Add Student">   
+    
+</form>
+</body>
+</html> 
